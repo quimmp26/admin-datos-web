@@ -13,7 +13,8 @@
     $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
     if(!$con)
     {
-	    die("No se ha podido realizar la conexión: ". mysqli_connect_error() . "<br>");
+        echo("No se ha podido realizar la conexión: ". mysqli_connect_error() . "<br>");
+        require_once("admin.html");
     }
     else
     {
@@ -30,20 +31,22 @@
     if($datos['rows'] == 0) 
     {
         $sql_insert = "insert into usuarios values ('".$objUsuario->getNickname()."', '".$objUsuario->getPassword()."', '".$objUsuario->getFname()."', '".$objUsuario->getLname()."', '".$objUsuario->getEmail()."',".$objUsuario->getAge().", ".$objUsuario->getTlf().")";
-
         $consulta=mysqli_query($con,$sql_insert);
         if(!$consulta)
         {
-            die("Registro fallido!");
+            echo("Registro fallido!");
+            require_once("admin.html");
         }
         else
         {
             echo "Usuario añadido!";
+            require_once("admin.html");
         }
     }
     else 
     {
         echo "El nick ".$objUsuario->getNickname()." no esta disponible!";
+        require_once("admin.html");
     } 
 
   
