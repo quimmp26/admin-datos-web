@@ -7,7 +7,7 @@
 
     //Crear Objeto de la clase Usuario
 
-    $objUsuario = new Usuario($_POST["nick"], $_POST["pass"], $_POST["fname"], $_POST["lname"], $_POST["mail"], $_POST["age"], $_POST["tlf"], $_POST["gender"]);
+    $objUsuario = new Usuario($_POST["nick"], $_POST["pass"], $_POST["fname"], $_POST["lname"], $_POST["mail"], $_POST["age"], $_POST["tlf"]);
     
     //Comprobación de conexión
     $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
@@ -23,13 +23,13 @@
 
     //Comprobar si existe el usuario
 
-    $sql_select = "select count(*) as rows from usuarios where nick = '".$objUsuario->getNickname()."'";
+    $sql_select = "select count(*) as rows from usuarios where nickname = '".$objUsuario->getNickname()."'";
     $res = mysqli_query($con, $sql_select);
     $datos = mysqli_fetch_assoc($res);
 
     if($datos['rows'] == 0) 
     {
-        $sql_insert = "insert into usuarios values ('".$objUsuario->getNickname()."', '".$objUsuario->getPassword()."', '".$objUsuario->getFname()."', '".$objUsuario->getLname()."', '".$objUsuario->getEmail()."',".$objUsuario->getAge().", ".$objUsuario->getTlf().", '".$objUsuario->getGender()."')";
+        $sql_insert = "insert into usuarios values ('".$objUsuario->getNickname()."', '".$objUsuario->getPassword()."', '".$objUsuario->getFname()."', '".$objUsuario->getLname()."', '".$objUsuario->getEmail()."',".$objUsuario->getAge().", ".$objUsuario->getTlf().")";
 
         $consulta=mysqli_query($con,$sql_insert);
         if(!$consulta)

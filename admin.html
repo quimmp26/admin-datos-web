@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://kit.fontawesome.com/b1dabce4a7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo" for="">Administración Usuarios</label>
+        <ul>
+            <li><a class="active" href="#">USUARIOS</a></li>
+            <li><a href="#">PEFIL</a></li>
+            <li><a href="#">CONFIGURACIÓN</a></li>
+        </ul>
+    </nav>
+    <section>
+        <h1>Usuarios</h1>
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Points</th>
+                    <th>Team</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>1</th>
+                    <th>Domenic</th>
+                    <th>88,110</th>
+                    <th>dcode</th>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <th>Sally</th>
+                    <th>74,400</th>
+                    <th>Students</th>
+                </tr>
+                <tr class="active-row">
+                    <th>3</th>
+                    <th>Nick</th>
+                    <th>52,300</th>
+                    <th>dcode</th>
+                </tr>
+                <tr>
+                    <th>4</th>
+                    <th>Jhon</th>
+                    <th>22,100</th>
+                    <th>facilito</th>
+                </tr>
+
+            </tbody>
+        </table>
+    </section>
+    <div class="main-container">
+        <h2>¿Que accion desea realizar?</h2>
+        <div class="radio-buttons">
+            <label class="custom-radio" onclick="location.href='añadir_usuario.html'">
+                <input type="radio" name="radio" >
+                <span class="radio-btn"><i class="fas fa-check"></i>
+                    <div class="options-icon">
+                        <i class="fas fa-user-plus"></i>
+                        <h3>Añadir Usuario</h3>
+                    </div> 
+                </span>
+            </label>
+            <label class="custom-radio">
+                <input type="radio" name="radio">
+                <span class="radio-btn"><i class="fas fa-check"></i>
+                    <div class="options-icon">
+                        <i class="fas fa-user-edit"></i>
+                        <h3>Editar Usuario</h3>
+                    </div> 
+                </span>
+            </label>
+            <label class="custom-radio">
+                <input type="radio" name="radio">
+                <span class="radio-btn"><i class="fas fa-check"></i>
+                    <div class="options-icon">
+                        <i class="fas fa-user-times"></i>
+                        <h3>Eliminar Usuario</h3>
+                    </div> 
+                </span>
+            </label>
+            <label class="custom-radio">
+                <input type="radio" name="radio">
+                <span class="radio-btn"><i class="fas fa-check"></i>
+                    <div class="options-icon">
+                        <i class="far fa-address-book"></i>
+                        <h3>Buscar Usuario</h3>
+                    </div> 
+                </span>
+            </label>
+        </div>
+    </div>
+</body>
+</html>

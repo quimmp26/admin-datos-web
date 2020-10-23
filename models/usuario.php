@@ -15,7 +15,7 @@
 
         public $verificado = true;
 
-        function Usuario($nickname, $password, $fname, $lname, $email, $age, $tlf, $gender){
+        function Usuario($nickname, $password, $fname, $lname, $email, $age, $tlf){
             $this->setNickname($nickname);
             $this->setPassword($password);
             $this->setFname($fname);
@@ -23,7 +23,7 @@
             $this->setEmail($email);
             $this->setAge($age);
             $this->setTlf($tlf);
-            $this->setGender($gender);
+            //$this->setGender($gender);
         }
 
 
@@ -134,20 +134,20 @@
         }
 
         
-        public function validarGenero($gender){
-            if($gender != "Masculino" || $gender != "Femenino") {
-                echo "Genero incorrecto! (Masculino - Femenino)<br>";
-                $verificado = false;
-            }
-        }
+        // public function validarGenero($gender){
+        //     if($gender != "Masculino" || $gender != "Femenino") {
+        //         echo "Genero incorrecto! (Masculino - Femenino)<br>";
+        //         $verificado = false;
+        //     }
+        // }
 
-        public function getGender(){
-            return $this->gender;
-        }
+        // public function getGender(){
+        //     return $this->gender;
+        // }
 
-        public function setGender($gender){
-            $this->gender = $gender;
-        }
+        // public function setGender($gender){
+        //     $this->gender = $gender;
+        // }
     }
 
 
