@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles_login.css">
+</head>
+<body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+          <h2 class="inactive underlineHover" onclick="location.href='index.html'"> Sign In </h2>
+          <h2 class="active">Sign Up </h2>
+      
+          <!-- Icon -->
+          <div class="fadeIn first">
+            <img src="img/user.png" id="icon"/>
+          </div>
+      
+          <!-- Login Form -->
+          <form method="POST" action="reg_usuario.php">
+            <input type="text" id="nickname" class="fadeIn second" name="nick" placeholder="Nickname">
+            <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+            <input type="text" id="fname" class="fadeIn third" name="fname" placeholder="First Name">
+            <input type="text" id="lname" class="fadeIn third" name="lname" placeholder="Last Name">
+            <input type="text" id="email" class="fadeIn third" name="email" placeholder="Email">
+            <input type="text" id="age" class="fadeIn third" name="age" placeholder="Age">
+            <input type="text" id="phone" class="fadeIn third" name="phone" placeholder="Phone">
+            <input type="submit" class="fadeIn fourth" value="Sign Up">
+          </form>
+      
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+            <a class="underlineHover" href="index.html">I have an account!</a>
+          </div>
+      
+        </div>
+      </div>
+</body>
+</html>

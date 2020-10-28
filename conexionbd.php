@@ -4,7 +4,7 @@
 $servidor="localhost";
 $usuario="root";
 $contraseña="usbw";
-$bd="test_bd";
+$bd="tienda_bd";
 
 
 ?>

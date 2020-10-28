@@ -117,11 +117,11 @@ a.active, a:hover {
 
 /* seccion tabla usuarios */
 
-section {
-    /*background: url("../img/bg1.jpg") no-repeat;*/ 
+/*section {
+    background: url("../img/bg1.jpg") no-repeat; 
     background-size: cover;
-    height: calc(50vh - 80px); 
-}
+    height: calc(50vh - 80px);
+}*/
 
 section h1 {
     color: #009879;
@@ -132,6 +132,7 @@ section h1 {
 }
 
 .content-table {
+    position: relative;
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9rem;
@@ -141,7 +142,6 @@ section h1 {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     left: 50%;
     transform: translate(-50%);
-    position: fixed;
 }
 
 .content-table thead tr {
@@ -178,15 +178,14 @@ section h1 {
 /* Radio Buttons Options */
 
 .main-container {
-    /*height: 100vh;*/
-    top: 60%;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     left: 50%;
     transform: translateX(-50%);
-    position: absolute;
+    position: relative;
 }
 
 .main-container h2 {
@@ -196,10 +195,7 @@ section h1 {
     font-weight: bold;
 }
 
-.radio-buttons {
-    width: 100%;
-    margin: 0 auto;
-}
+
 
 .custom-radio input {
     display: none;

@@ -47,7 +47,18 @@
         
         else{
             $_SESSION["nick_logueado"]=$nick;
-            require_once("admin.html");
+            $sql_admin = "select admin from usuarios where nickname = '$nick'";
+            $resultado = mysqli_query($con, $sql_admin);
+
+            while ($fila = $resultado->fetch_assoc()) {
+                $admin=$fila["admin"];
+            }
+            if($admin == 1){
+                require_once("admin.html");
+            }else {
+                echo "Usuari comun, vete a coger ciricoles";
+            }
+        
         }
     }
 	
