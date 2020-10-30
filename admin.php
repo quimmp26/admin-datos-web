@@ -1,3 +1,20 @@
+<?php
+
+    require_once("conexionbd.php");
+    header("Content-Type: text/html;charset=utf-8");
+
+    $con = mysqli_connect($servidor, $usuario, $contraseña, $bd) or die(mysql_error());
+
+    if (!$con)
+    {
+        die("No se ha podido realizar la corrección ERROR:" . mysqli_connect_error() . "<br>");
+        require_once("index.html");
+    }
+
+    
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,50 +30,45 @@
         <label for="check" class="checkbtn">
             <i class="fas fa-bars"></i>
         </label>
-        <label class="logo" for="">Administración Usuarios</label>
+        <label class="logo" for="">Administración Productos</label>
         <ul>
-            <li><a class="active" href="#">USUARIOS</a></li>
+            <li><a class="active" href="#">ADMIN</a></li>
             <li><a href="#">PEFIL</a></li>
             <li><a href="#">CONFIGURACIÓN</a></li>
             <li><a href="logout.php">LOGOUT</a></li>
         </ul>
     </nav>
     <section>
-        <h1>Usuarios</h1>
+        <h1>Productos</h1>
         <table class="content-table">
             <thead>
                 <tr>
-                    <th>Rank</th>
-                    <th>Name</th>
-                    <th>Points</th>
-                    <th>Team</th>
+                    <th>IdProducto</th>
+                    <th>Producto</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Imagen</th>
                 </tr>
             </thead>
             <tbody>
+            <?php
+                $sql_select = "select * from productos";
+                $result=mysqli_query($con,$sql_select);
+                while ($valores = mysqli_fetch_array($result)) {  
+            ?>
+
                 <tr>
-                    <th>1</th>
-                    <th>Domenic</th>
-                    <th>88,110</th>
-                    <th>dcode</th>
+                    <th><?php echo $valores["idProducto"] ?></th>
+                    <th><?php echo $valores["producto"] ?></th>
+                    <th><?php echo $valores["descripcion"] ?></th>
+                    <th><?php echo $valores["precio"] ?></th>
+                    <th><?php echo $valores["stock"] ?></th>
+                    <th><img class="imgProd" src="<?php echo $valores["imagen"] ?>"></th>
                 </tr>
-                <tr>
-                    <th>2</th>
-                    <th>Sally</th>
-                    <th>74,400</th>
-                    <th>Students</th>
-                </tr>
-                <tr class="active-row">
-                    <th>3</th>
-                    <th>Nick</th>
-                    <th>52,300</th>
-                    <th>dcode</th>
-                </tr>
-                <tr>
-                    <th>4</th>
-                    <th>Jhon</th>
-                    <th>22,100</th>
-                    <th>facilito</th>
-                </tr>
+            <?php
+                }
+            ?>
 
             </tbody>
         </table>
@@ -69,7 +81,7 @@
                 <span class="radio-btn"><i class="fas fa-check"></i>
                     <div class="options-icon">
                         <i class="fas fa-user-plus"></i>
-                        <h3>Añadir Usuario</h3>
+                        <h3>Añadir Producto</h3>
                     </div> 
                 </span>
             </label>
@@ -78,7 +90,7 @@
                 <span class="radio-btn"><i class="fas fa-check"></i>
                     <div class="options-icon">
                         <i class="fas fa-user-edit"></i>
-                        <h3>Editar Usuario</h3>
+                        <h3>Editar Producto</h3>
                     </div> 
                 </span>
             </label>
@@ -87,19 +99,11 @@
                 <span class="radio-btn"><i class="fas fa-check"></i>
                     <div class="options-icon">
                         <i class="fas fa-user-times"></i>
-                        <h3>Eliminar Usuario</h3>
+                        <h3>Eliminar Producto</h3>
                     </div> 
                 </span>
             </label>
-            <label class="custom-radio">
-                <input type="radio" name="radio">
-                <span class="radio-btn"><i class="fas fa-check"></i>
-                    <div class="options-icon">
-                        <i class="far fa-address-book"></i>
-                        <h3>Buscar Usuario</h3>
-                    </div> 
-                </span>
-            </label>
+
         </div>
     </div>
 </body>

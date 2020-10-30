@@ -124,7 +124,7 @@ a.active, a:hover {
 }*/
 
 section h1 {
-    color: #009879;
+    color: red; /*009879*/
     font-weight: bold;
     text-align: center;
     padding: 20px 0;
@@ -157,6 +157,10 @@ section h1 {
     padding: 12px 15px;
 }
 
+.content-table th img {
+    max-width: 250px;
+}
+
 .content-table tbody tr {
     border-bottom: 1px solid #dddddd;
 }
@@ -173,6 +177,8 @@ section h1 {
     font-weight: bold;
     color:  #009879;
 }
+
+
 
 
 /* Radio Buttons Options */

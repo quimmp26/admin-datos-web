@@ -1,37 +1,38 @@
-<?php
-    
+<?php  
+
     require_once("conexionbd.php");
-	
+        
     session_start();
 
     header("Content-Type: text/html;charset=utf-8");
 
-	$nick = $_POST["login"];
-	$password = $_POST["password"];
+    $con = mysqli_connect($servidor, $usuario, $contraseña, $bd) or die(mysql_error());
 
-	$con = mysqli_connect($servidor, $usuario, $contraseña, $bd) or die(mysql_error());
-	
-	if (!$con)
-	{
+    if (!$con)
+    {
         die("No se ha podido realizar la corrección ERROR:" . mysqli_connect_error() . "<br>");
         require_once("index.html");
-	}
-	else
-	{
-		mysqli_set_charset ($con, "utf8");
-		echo "Se ha conectado a la base de datos" . "<br>";
-	}
-	
-	$sql_select = "select count(*) as rows from usuarios where nickname = '$nick'";
-	$resultado = mysqli_query($con, $sql_select);
-		while ($fila = $resultado->fetch_assoc()) {
-		$numero=$fila["rows"];
-	}
-	if($numero==0){
+    }
+    else
+    {
+        mysqli_set_charset ($con, "utf8");
+        echo "Se ha conectado a la base de datos" . "<br>";
+    }
+
+    $sql_select = "select * from productos";
+
+    while($fila = mysqli_fetch_array($sql_select)){
+        $fila["idProducto"]
+    }
+    $resultado = mysqli_query($con, $sql_select);
+        while ($fila = $resultado->fetch_assoc()) {
+        $numero=$fila["rows"];
+    }
+    if($numero==0){
         echo "El usuario no existe";
         require_once("index.html");
-	}
-	else{
+    }
+    else{
         $sql_select2 = "select password as rows from usuarios where nickname = '$nick'";
         $resultado = mysqli_query($con, $sql_select2);
 
@@ -54,18 +55,13 @@
                 $admin=$fila["admin"];
             }
             if($admin == 1){
-                require_once("admin.php");
+                require_once("admin.html");
             }else {
                 echo "Usuari comun, vete a coger ciricoles";
             }
         
         }
     }
-	
-	
-	
-
-
 
 
 

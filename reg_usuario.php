@@ -25,12 +25,11 @@ if (isset($_POST["nick"]))
 		mysqli_set_charset ($con, "utf8");
 		echo "Se ha conectado a la base de datos"."<br>";
 	}
-	//////////////////////////////////////
 	
 	//Inserción de datos
 	
 	//Primero compruebo si el nick existe
-	$instruccion = "select count(*) as rows from usuarios where nick = '$nick'";
+	$instruccion = "select count(*) as rows from usuarios where nickname = '$nick'";
 	$res = mysqli_query($con, $instruccion);
 	$datos = mysqli_fetch_assoc($res);
 	
