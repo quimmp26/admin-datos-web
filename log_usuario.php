@@ -6,7 +6,7 @@
 
     header("Content-Type: text/html;charset=utf-8");
 
-	$nick = $_POST["login"];
+	$nick = $_POST["user"];
 	$password = $_POST["password"];
 
 	$con = mysqli_connect($servidor, $usuario, $contraseña, $bd) or die(mysql_error());
@@ -22,17 +22,17 @@
 		echo "Se ha conectado a la base de datos" . "<br>";
 	}
 	
-	$sql_select = "select count(*) as rows from usuarios where nickname = '$nick'";
+	$sql_select = "select count(*) as 'rows' from usuarios where nickname = '$nick'";
 	$resultado = mysqli_query($con, $sql_select);
 		while ($fila = $resultado->fetch_assoc()) {
-		$numero=$fila["rows"];
+		    $numero=$fila["rows"];
 	}
 	if($numero==0){
         echo "El usuario no existe";
         require_once("index.html");
 	}
 	else{
-        $sql_select2 = "select password as rows from usuarios where nickname = '$nick'";
+        $sql_select2 = "select password as 'rows' from usuarios where nickname = '$nick'";
         $resultado = mysqli_query($con, $sql_select2);
 
         while ($fila = $resultado->fetch_assoc()) {
@@ -61,6 +61,8 @@
         
         }
     }
+
+
 	
 	
 	

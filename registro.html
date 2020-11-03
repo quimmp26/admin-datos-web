@@ -20,13 +20,13 @@
       
           <!-- Login Form -->
           <form method="POST" action="reg_usuario.php">
-            <input type="text" id="nickname" class="fadeIn second" name="nick" placeholder="Nickname">
-            <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
-            <input type="text" id="fname" class="fadeIn third" name="fname" placeholder="First Name">
-            <input type="text" id="lname" class="fadeIn third" name="lname" placeholder="Last Name">
-            <input type="text" id="email" class="fadeIn third" name="email" placeholder="Email">
-            <input type="text" id="age" class="fadeIn third" name="age" placeholder="Age">
-            <input type="text" id="phone" class="fadeIn third" name="phone" placeholder="Phone">
+            <input type="text" id="nickname" class="fadeIn second" name="nick" placeholder="Nickname" required maxlength="30" minlength="5">
+            <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password" required maxlength="30" minlength="5">
+            <input type="text" id="fname" class="fadeIn third" name="fname" placeholder="First Name" required maxlength="30" minlength="5">
+            <input type="text" id="lname" class="fadeIn third" name="lname" placeholder="Last Name" required maxlength="30" minlength="5">
+            <input type="email" id="email" class="fadeIn third" name="email" placeholder="Email" required maxlength="30" minlength="5">
+            <input type="number" id="age" class="fadeIn third" name="age" placeholder="Age" required >
+            <input type="number" id="phone" class="fadeIn third" name="phone" placeholder="Phone" required>
             <input type="submit" class="fadeIn fourth" value="Sign Up">
           </form>
       

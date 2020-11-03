@@ -3,7 +3,7 @@
 //Parametros de conexión
 $servidor="localhost";
 $usuario="root";
-$contraseña="usbw";
+$contraseña="";
 $bd="tienda_bd";
 
 

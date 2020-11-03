@@ -124,7 +124,7 @@ a.active, a:hover {
 }*/
 
 section h1 {
-    color: red; /*009879*/
+    color: #009879;
     font-weight: bold;
     text-align: center;
     padding: 20px 0;
@@ -264,5 +264,22 @@ section h1 {
 .custom-radio input:checked + .radio-btn>i{
     opacity: 1;
     transform: translateX(-50%) scale(1);
+}
+
+
+/* Formulario Add */
+
+#form_add {
+    display: none;
+}
+
+#scroll {
+    overflow: scroll;
+    height: 65%;
+    width: 100%;
+}
+
+#scroll tbody {
+    width: 100%;
 }
 
