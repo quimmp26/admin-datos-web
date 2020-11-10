@@ -89,7 +89,7 @@
                     </div> 
                 </span>
             </label>
-            <label class="custom-radio">
+            <label class="custom-radio" onclick="mostrarFormEdit()>
                 <input type="radio" name="radio">
                 <span class="radio-btn"><i class="fas fa-check"></i>
                     <div class="options-icon">
@@ -98,7 +98,7 @@
                     </div> 
                 </span>
             </label>
-            <label class="custom-radio">
+            <label class="custom-radio" onclick="mostrarFormDelete()>
                 <input type="radio" name="radio">
                 <span class="radio-btn"><i class="fas fa-check"></i>
                     <div class="options-icon">
@@ -136,6 +136,47 @@
 
     <!-- Sign in button -->
     <button class="btn btn-info btn-block" type="submit">AÑADIR</button>
+
+
+    </form>
+
+    <form class="text-center border border-light p-5" action="editar_producto.php" id="form_edit" method="POST">
+
+    <p class="h4 mb-4">Editar Producto</p>
+
+    <!-- Name -->
+    <input type="text" name="producto" id="" class="form-control mb-4" placeholder="Producto" required>
+
+    <!-- Descripcion -->
+    <textarea name="descrip" class="form-control mb-4" cols="30" rows="10" placeholder="Introduce una descripcion del producto..." required></textarea>
+   
+    <!-- Precio -->
+    
+    <input type="number" name="precio" id="" class="form-control mb-4" placeholder="Precio" required>
+
+     <!-- Precio -->
+    
+    <input type="number" name="stock" id="" class="form-control mb-4" placeholder="Stock" required>
+
+    <!-- Imagen -->
+
+    <input type="text" name="img" id="" class="form-control mb-4" placeholder="Imagen" required>
+
+    <!-- Sign in button -->
+    <button class="btn btn-info btn-block" type="submit">EDITAR</button>
+
+
+    </form>
+
+    <form class="text-center border border-light p-5" action="eliminar_producto.php" id="form_delete" method="POST">
+
+    <p class="h4 mb-4">Eliminar Producto</p>
+
+    <!-- Name -->
+    <input type="text" name="producto" id="" class="form-control mb-4" placeholder="Producto" required>
+
+    <!-- Sign in button -->
+    <button class="btn btn-info btn-block" type="submit">ELIMINAR</button>
 
 
     </form>

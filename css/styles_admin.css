@@ -273,6 +273,14 @@ section h1 {
     display: none;
 }
 
+#form_edit {
+    display: none;
+}
+
+#form_delete {
+    display: none;
+}
+
 #scroll {
     overflow: scroll;
     height: 65%;
