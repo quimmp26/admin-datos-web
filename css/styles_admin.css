@@ -152,9 +152,12 @@ section h1 {
 }
 
 
+
+
 .content-table th,
 .content-table td {
     padding: 12px 15px;
+    width: 50px;
 }
 
 .content-table th img {
@@ -209,7 +212,7 @@ section h1 {
 
 .radio-btn {
     margin: 10px;
-    width: 180px;
+    width: 1000px;
     height: 200px;
     border: 3px solid transparent;
     display: inline-block;

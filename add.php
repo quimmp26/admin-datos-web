@@ -2,7 +2,11 @@
 
 require_once("conexionbd.php");
    	
-header("Content-Type: text/html;charset=utf-8");
+//header("Content-Type: text/html;charset=utf-8");
+require_once("add2.php");
+
+if(isset($_POST['add'])) {
+
 
 	$producto = $_POST["producto"];
     $descripcion = $_POST["descrip"];
@@ -10,21 +14,7 @@ header("Content-Type: text/html;charset=utf-8");
     $stock = $_POST["stock"];
     $imagen = $_POST["img"];
 
-
-	$con = mysqli_connect($servidor, $usuario, $contraseña, $bd) or die(mysql_error());
-	
-	if (!$con)
-	{
-		die("No se ha podido realizar la corrección ERROR:" . mysqli_connect_error() . "<br>");
-	}
-	
-	else
-	{
-		mysqli_set_charset ($con, "utf8");
-		echo "Se ha conectado a la base de datos"."<br>";
-	}
-	
-	//Inserción de datos
+		//Inserción de datos
 	
 	//Primero compruebo si el nick existe
 	$instruccion = "select count(*) as 'rows' from productos where producto = '$producto'";
@@ -49,7 +39,13 @@ header("Content-Type: text/html;charset=utf-8");
 	{
         echo "El producto $producto ya está registrado";
 	}
+}
 
 
 
 ?>
+
+	
+
+
+
