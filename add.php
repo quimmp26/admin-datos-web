@@ -3,7 +3,7 @@
 require_once("conexionbd.php");
    	
 //header("Content-Type: text/html;charset=utf-8");
-require_once("add2.php");
+require_once("views/add_view.php");
 
 if(isset($_POST['add'])) {
 

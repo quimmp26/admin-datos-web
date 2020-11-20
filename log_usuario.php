@@ -56,7 +56,7 @@
             if($admin == 1){
                 require_once("admin.php");
             }else {
-                echo "Usuari comun, vete a coger ciricoles";
+                require_once("catalogo.php");
             }
         
         }
