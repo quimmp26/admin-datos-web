@@ -56,7 +56,8 @@
             if($admin == 1){
                 require_once("admin.php");
             }else {
-                require_once("catalogo.php");
+                header("Location: catalogo.php");
+                //require_once("catalogo.php");
             }
         
         }

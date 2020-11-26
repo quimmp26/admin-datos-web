@@ -1,7 +1,8 @@
 <?php
 
     require_once("conexionbd.php");
-
+    $filtrar = false;
+    $opcion = "Order By";
 
 ?>
 
@@ -101,14 +102,49 @@
           </a>
         </div>
 
-     
+        <?php
+
+        ?>
+
+        <form method="post">
+          <div class="dropdown ">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <?php echo $opcion ?>
+            </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                
+                  <input type="submit" name="precio" value="Precio" class="dropdown-item"/>
+                  <input type="submit" name="categoria" value="Categoria" class="dropdown-item"/>
+                
+              </div>
+          </div>
+        </form>
+        
 
         <div class="row">
 
             <?php
+
+              if(isset($_POST['precio'])) { 
+                $filtrar = true;
+                $opcion = "Precio";
+                $sql_select = "SELECT idProducto, producto, CONCAT(SUBSTR(descripcion, 1, 65), '...') as descripcion, precio, stock, imagen, categoria FROM productos ORDER BY precio";
+                $result=mysqli_query($con,$sql_select);
+              }
+              if(isset($_POST['categoria'])) { 
+                $filtrar = true;
+                $opcion = "Categoria";
+                $sql_select = "SELECT idProducto, producto, CONCAT(SUBSTR(descripcion, 1, 65), '...') as descripcion, precio, stock, imagen, categoria FROM productos ORDER BY categoria";
+                $result=mysqli_query($con,$sql_select);
+              } 
+
+              if($filtrar === false) {
                 $sql_select = "SELECT idProducto, producto, CONCAT(SUBSTR(descripcion, 1, 65), '...') as descripcion, precio, stock, imagen, categoria FROM productos";
                 $result=mysqli_query($con,$sql_select);
+              }
+               
                 while ($valores = mysqli_fetch_array($result)) {  
+              
             ?>
 
           <div class="col-lg-4 col-md-6 mb-4">
@@ -148,7 +184,7 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+      <p class="m-0 text-center text-white">Copyright &copy; Quim Martínez Shop 2020</p>
     </div>
     <!-- /.container -->
   </footer>
