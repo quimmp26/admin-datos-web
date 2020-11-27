@@ -2,7 +2,6 @@
 
     require_once("conexionbd.php");
     $filtrar = false;
-    $opcion = "Order By";
 
 ?>
 
@@ -64,11 +63,15 @@
       <div class="col-lg-3">
 
         <h1 class="my-4">TECH IT</h1>
-        <div class="list-group">
-          <a href="#" class="list-group-item">Smartphones</a>
-          <a href="#" class="list-group-item">Portátiles</a>
-          <a href="#" class="list-group-item">Monitores</a>
-        </div>
+        <form method="POST">
+          <div class="list-group">
+            <button type="submit" class="list-group-item" name="all">Todas las categorias</button>
+            <button type="submit" class="list-group-item" name="smartphones">Smartphones</button>
+            <button type="submit" class="list-group-item" name="portatiles">Portátiles</button>
+            <button type="submit" class="list-group-item" name="monitores">Monitores</button>
+            <button type="submit" class="list-group-item" name="perifericos">Periféricos</button>
+          </div>
+        </form>
 
       </div>
       <!-- /.col-lg-3 -->
@@ -109,35 +112,67 @@
         <form method="post">
           <div class="dropdown ">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <?php echo $opcion ?>
+              Order By
             </button>
+            
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 
-                  <input type="submit" name="precio" value="Precio" class="dropdown-item"/>
-                  <input type="submit" name="categoria" value="Categoria" class="dropdown-item"/>
+                  <input type="submit" name="precio+" value="Precio: Mas caros primero" class="dropdown-item"/>
+                  <input type="submit" name="precio-" value="Precio: Mas baratos primero" class="dropdown-item"/>
                 
               </div>
           </div>
         </form>
+        <br>
         
 
         <div class="row">
 
             <?php
 
-              if(isset($_POST['precio'])) { 
+              if(isset($_POST['all'])){
+                $filtrar = false;
+              }
+
+              if(isset($_POST['smartphones'])){
                 $filtrar = true;
-                $opcion = "Precio";
+                $cat = "Smartphones";
+                $sql_select = "SELECT idProducto, producto, CONCAT(SUBSTR(descripcion, 1, 65), '...') as descripcion, precio, stock, imagen, categoria FROM productos WHERE categoria = '".$cat."'";
+                $result=mysqli_query($con,$sql_select);
+              }
+
+              if(isset($_POST['portatiles'])){
+                $filtrar = true;
+                $cat = "Portatiles";
+                $sql_select = "SELECT idProducto, producto, CONCAT(SUBSTR(descripcion, 1, 65), '...') as descripcion, precio, stock, imagen, categoria FROM productos WHERE categoria = '".$cat."'";
+                $result=mysqli_query($con,$sql_select);
+              }
+
+              if(isset($_POST['monitores'])){
+                $filtrar = true;
+                $cat = "Monitores";
+                $sql_select = "SELECT idProducto, producto, CONCAT(SUBSTR(descripcion, 1, 65), '...') as descripcion, precio, stock, imagen, categoria FROM productos WHERE categoria = '".$cat."'";
+                $result=mysqli_query($con,$sql_select);
+              }
+
+              if(isset($_POST['perifericos'])){
+                $filtrar = true;
+                $cat = "Perifericos";
+                $sql_select = "SELECT idProducto, producto, CONCAT(SUBSTR(descripcion, 1, 65), '...') as descripcion, precio, stock, imagen, categoria FROM productos WHERE categoria = '".$cat."'";
+                $result=mysqli_query($con,$sql_select);
+              }
+
+              if(isset($_POST['precio-'])) { 
+                $filtrar = true;
                 $sql_select = "SELECT idProducto, producto, CONCAT(SUBSTR(descripcion, 1, 65), '...') as descripcion, precio, stock, imagen, categoria FROM productos ORDER BY precio";
                 $result=mysqli_query($con,$sql_select);
               }
-              if(isset($_POST['categoria'])) { 
+              if(isset($_POST['precio+'])) { 
                 $filtrar = true;
-                $opcion = "Categoria";
-                $sql_select = "SELECT idProducto, producto, CONCAT(SUBSTR(descripcion, 1, 65), '...') as descripcion, precio, stock, imagen, categoria FROM productos ORDER BY categoria";
+                $sql_select = "SELECT idProducto, producto, CONCAT(SUBSTR(descripcion, 1, 65), '...') as descripcion, precio, stock, imagen, categoria FROM productos ORDER BY precio DESC";
                 $result=mysqli_query($con,$sql_select);
-              } 
-
+              }
+  
               if($filtrar === false) {
                 $sql_select = "SELECT idProducto, producto, CONCAT(SUBSTR(descripcion, 1, 65), '...') as descripcion, precio, stock, imagen, categoria FROM productos";
                 $result=mysqli_query($con,$sql_select);
