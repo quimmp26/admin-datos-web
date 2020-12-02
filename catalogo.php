@@ -105,10 +105,6 @@
           </a>
         </div>
 
-        <?php
-
-        ?>
-
         <form method="post">
           <div class="dropdown ">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -125,7 +121,6 @@
         </form>
         <br>
         
-
         <div class="row">
 
             <?php
@@ -193,7 +188,6 @@
                 <p class="card-text"><?php echo $valores["descripcion"] ?></p>
               </div>
               <div class="card-footer">
-                <!--<small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>-->
                 <button type="button" class="btn btn-success btn-lg btn-block">AÑADIR AL CARRITO</button>
               </div>
             </div>
@@ -202,7 +196,6 @@
             <?php
                 }
             ?>
-
 
         </div>
         <!-- /.row -->

@@ -3,7 +3,7 @@
 //Parametros de conexión
 $servidor="localhost";
 $usuario="root";
-$contraseña="usbw";
+$contraseña="";
 $bd="tienda_bd";
 
 $con = mysqli_connect($servidor, $usuario, $contraseña, $bd) or die(mysql_error());
