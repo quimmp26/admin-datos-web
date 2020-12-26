@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,20 +17,27 @@
           <div class="fadeIn first">
             <img src="img/user.png" id="icon"/>
           </div>
+
+          <div id="msg"></div>
+ 
+          <!-- Mensajes de Verificación -->
+          <div id="error" class="alert alert-danger " role="alert" style="display: none;">
+              Las Contraseñas no coinciden, vuelve a intentar!
+          </div>
       
           <!-- Login Form -->
           <form method="POST" action="reg_usuario.php">
             <input type="text" id="nickname" class="fadeIn second" name="nick" placeholder="Nickname" required maxlength="30" minlength="5">
-            <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password" required maxlength="30" minlength="5">
+            <input type="password" class="form-control fadeIn second" name="pass1" placeholder="Password" required maxlength="30" minlength="5">
+            <input type="password" class="form-control fadeIn second" name="pass2" placeholder="Repeat Password" required  maxlength="30" minlength="5">
             <input type="text" id="fname" class="fadeIn third" name="fname" placeholder="First Name" required maxlength="30" minlength="5">
             <input type="text" id="lname" class="fadeIn third" name="lname" placeholder="Last Name" required maxlength="30" minlength="5">
             <input type="email" id="email" class="fadeIn third" name="email" placeholder="Email" required maxlength="30" minlength="5">
             <input type="number" id="age" class="fadeIn third" name="age" placeholder="Age" required >
             <input type="number" id="phone" class="fadeIn third" name="phone" placeholder="Phone" required>
-            <input type="submit" class="fadeIn fourth" value="Sign Up">
+            <input type="submit" class="fadeIn fourth" id="register" value="Sign Up">
           </form>
       
-          <!-- Remind Passowrd -->
           <div id="formFooter">
             <a class="underlineHover" href="index.html">I have an account!</a>
           </div>

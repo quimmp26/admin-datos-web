@@ -6,24 +6,23 @@ require_once("conexionbd.php");
 require_once("views/add_view.php");
 
 if(isset($_POST['add'])) {
-
-
-	$producto = $_POST["producto"];
-    $descripcion = $_POST["descrip"];
-    $precio = $_POST["precio"];
-    $stock = $_POST["stock"];
-    $imagen = $_POST["img"];
+	
+	$producto = $_POST['producto'];
+	$codigo = $_POST['codigo'];
+	$precio = $_POST['precio'];
+	$img = $_POST['img'];
+	$categoria = $_POST['cat'];
 
 		//Inserción de datos
 	
 	//Primero compruebo si el nick existe
-	$instruccion = "select count(*) as 'rows' from productos where producto = '$producto'";
+	$instruccion = "select count(*) as 'rows' from tblproduct where name = '$producto'";
 	$res = mysqli_query($con, $instruccion);
 	$datos = mysqli_fetch_assoc($res);
 	
 	if ($datos['rows'] == 0)
 	{
-        $instruccion = "insert into productos (producto, descripcion, precio, stock, imagen) values ('$producto','$descripcion',$precio, $stock, '$imagen')";
+        $instruccion = "insert into tblproduct (name, code, image, price, category) values ('$producto','$codigo','$img', $precio, '$categoria')";
 		$res = mysqli_query($con, $instruccion);
 		if (!$res) 
 		{
@@ -32,7 +31,7 @@ if(isset($_POST['add'])) {
 		else
 		{
 			echo "<script>alert('Producto añadido correctamente');</script>";
-			include("admin.php");
+			header("Location: admin.php");
 		}
 	}
 	else

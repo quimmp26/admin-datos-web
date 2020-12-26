@@ -6,7 +6,8 @@ header("Content-Type: text/html;charset=utf-8");
 if (isset($_POST["nick"]))
 {
 	$nick = $_POST["nick"];
-    $password = $_POST["password"];
+	$password1 = $_POST["pass1"];
+	$password2 = $_POST["pass2"];
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
     $email = $_POST["email"];
@@ -35,31 +36,37 @@ if (isset($_POST["nick"]))
 	
 	if ($datos['rows'] == 0)
 	{
-		$instruccion = "insert into usuarios (nickname, password, fname, lname, email, age, phone, admin) values ('$nick','$password','$fname', '$lname', '$email', $age, $phone, 0)";
-		$res = mysqli_query($con, $instruccion);
-		if (!$res) 
-		{
-			die("No se ha podido crear el usuario");
+		// Verificamos si las constraseñas no coinciden 
+		if ($password1 != $password2) {
+			echo "<script>alert('Las contraseñas no coinciden');</script>";
+			require_once("registro.html");
+		} else {
+  
+			$instruccion = "insert into usuarios (nickname, password, fname, lname, email, age, phone, admin) values ('$nick','$password1','$fname', '$lname', '$email', $age, $phone, 0)";
+			$res = mysqli_query($con, $instruccion);
+			if (!$res) 
+			{
+				die("No se ha podido crear el usuario");
+			}
+			else
+			{
+				echo "<script>alert('Usuario creado correctamente');</script>";
+				
+				$_SESSION["nick_logueado"]=$nick;
+				$sql_admin = "select admin from usuarios where nickname = '$nick'";
+				$resultado = mysqli_query($con, $sql_admin);
+	
+				while ($fila = $resultado->fetch_assoc()) {
+					$admin=$fila["admin"];
+				}
+				if($admin == 1){
+					require_once("admin.php");
+				}else {
+					require_once("index.html");
+				}
+			}
 		}
-		else
-		{
-			echo "Usuario creado";
-			//me lleva al login para que pruebe mi contraseña
-			echo "<script>alert('Usuario creado correctamente');</script>";
-			
-			$_SESSION["nick_logueado"]=$nick;
-            $sql_admin = "select admin from usuarios where nickname = '$nick'";
-            $resultado = mysqli_query($con, $sql_admin);
 
-            while ($fila = $resultado->fetch_assoc()) {
-                $admin=$fila["admin"];
-            }
-            if($admin == 1){
-                require_once("admin.php");
-            }else {
-                require_once("catalogo.php");
-            }
-		}
 	}
 	else
 	{

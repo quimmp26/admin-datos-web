@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,14 +14,14 @@
         <p class="h4 mb-4">Añadir Producto</p>
         <!-- Name -->
         <input type="text" name="producto" class="form-control mb-4" placeholder="Producto" required>
-        <!-- Descripcion -->
-        <textarea name="descrip" class="form-control mb-4" cols="30" rows="10" placeholder="Introduce una descripcion del producto..." required></textarea>
+        <!-- Codigo -->
+        <input type="text" name="codigo" class="form-control mb-4" placeholder="Codigo" required >
         <!-- Precio -->
-        <input type="number" name="precio" class="form-control mb-4" placeholder="Precio" required>
-        <!-- Precio -->
-        <input type="number" name="stock" class="form-control mb-4" placeholder="Stock" required>
+        <input type="number" name="precio" class="form-control mb-4" placeholder="Precio" required step=".01">
         <!-- Imagen -->
         <input type="text" name="img" class="form-control mb-4" placeholder="Imagen" required>
+        <!-- Categoria -->
+        <input type="text" name="cat" class="form-control mb-4" placeholder="Categoria" required>
         <!-- Sign in button -->
         <input class="btn btn-info btn-block" type="submit" name="add" value="Añadir">
 </form>

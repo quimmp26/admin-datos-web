@@ -11,16 +11,15 @@
     <form class="text-center border border-light p-5" id="form_edit" method="POST">
         <p class="h4 mb-4">Editar Producto</p>
         <!-- Name -->
-        
-        <input type="text" name="producto" class="form-control mb-4" placeholder="Producto" required value="<?php echo $data[1] ?>">
-        <!-- Descripcion -->
-        <textarea name="descrip" class="form-control mb-4" cols="30" rows="10" placeholder="Introduce una descripcion del producto..." required> <?php echo $data[2] ?></textarea>
+        <input type="text" name="producto" class="form-control mb-4" placeholder="Producto" required value="<?php echo $data["name"] ?>">
+        <!-- Codigo -->
+        <input type="text" name="codigo" class="form-control mb-4" placeholder="Codigo" required value="<?php echo $data["code"] ?>">
         <!-- Precio -->
-        <input type="number" name="precio" class="form-control mb-4" placeholder="Precio" required value="<?php echo $data[3] ?>">
-        <!-- Precio -->
-        <input type="number" name="stock" class="form-control mb-4" placeholder="Stock" required value="<?php echo $data[4] ?>">
+        <input type="number" name="precio" class="form-control mb-4" placeholder="Precio" required step=".01" value="<?php echo $data["price"] ?>">
         <!-- Imagen -->
-        <input type="text" name="img" class="form-control mb-4" placeholder="Imagen" required value="<?php echo $data[5] ?>">
+        <input type="text" name="img" class="form-control mb-4" placeholder="Imagen" required value="<?php echo $data["image"] ?>">
+        <!-- Categoria -->
+        <input type="text" name="cat" class="form-control mb-4" placeholder="Categoria" required value="<?php echo $data["category"] ?>">
         <!-- Sign in button -->
         <input class="btn btn-info btn-block" type="submit" name="update" value="Editar">
     </form>

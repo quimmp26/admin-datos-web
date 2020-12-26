@@ -4,7 +4,7 @@ require_once("conexionbd.php");
 
 $id = $_GET['id']; // get id through query string
 
-$del = mysqli_query($con,"delete from productos where idProducto = '$id'"); // delete query
+$del = mysqli_query($con,"delete from tblproduct where id = '$id'"); // delete query
 
 if($del)
 {
