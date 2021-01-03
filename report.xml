@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<productos>
+  <product>
+    <nombre>FinePix Pro2 3D Camera</nombre>
+    <codigo>3DcAM01</codigo>
+    <imagen>img/product-images/camera.jpg</imagen>
+    <precio>1500.00</precio>
+    <categoria>Fotografia</categoria>
+  </product>
+  <product>
+    <nombre>EXP Portable Hard Drive</nombre>
+    <codigo>USB02</codigo>
+    <imagen>img/product-images/external-hard-drive.jpg</imagen>
+    <precio>800.00</precio>
+    <categoria>Componentes</categoria>
+  </product>
+  <product>
+    <nombre>Luxury Ultra thin Wrist Watch</nombre>
+    <codigo>wristWear03</codigo>
+    <imagen>img/product-images/watch.jpg</imagen>
+    <precio>300.00</precio>
+    <categoria>Relojes</categoria>
+  </product>
+  <product>
+    <nombre>XP 1155 Intel Core Laptop</nombre>
+    <codigo>LPN45</codigo>
+    <imagen>img/product-images/laptop.jpg</imagen>
+    <precio>800.00</precio>
+    <categoria>Portatiles</categoria>
+  </product>
+  <product>
+    <nombre>Acer XV272UP 26</nombre>
+    <codigo>A001</codigo>
+    <imagen>img/product-images/1.jpg</imagen>
+    <precio>360.00</precio>
+    <categoria>Monitores</categoria>
+  </product>
+  <product>
+    <nombre>Acer Nitro 5 AN515-55-7075 Intel Core i7-10750H/16GB/512GB SSD/GTX 1650/15.6"</nombre>
+    <codigo>A002</codigo>
+    <imagen>img/product-images/2.jpg</imagen>
+    <precio>899.99</precio>
+    <categoria>Portatiles</categoria>
+  </product>
+  <product>
+    <nombre>Xiaomi Redmi Note 8 Pro 6/64GB Verde Libre</nombre>
+    <codigo>A003</codigo>
+    <imagen>img/product-images/3.jpg</imagen>
+    <precio>304.50</precio>
+    <categoria>Smartphones</categoria>
+  </product>
+  <product>
+    <nombre>HP 25mx 24.5" LED FullHD 144Hz FreeSync</nombre>
+    <codigo>A004</codigo>
+    <imagen>img/product-images/4.jpg</imagen>
+    <precio>199.99</precio>
+    <categoria>Monitores</categoria>
+  </product>
+</productos>

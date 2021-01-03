@@ -22,46 +22,50 @@
         <label for="check" class="checkbtn">
             <i class="fas fa-bars"></i>
         </label>
-        <label class="logo" for="">Administración Productos</label>
+        <label class="logo" for="">Administración Usuarios</label>
         <ul>
-            <li><a class="active" href="admin.php">Productos</a></li>
-            <li><a href="usuarios.php">Usuarios</a></li>
+            <li><a href="admin.php">Productos</a></li>
+            <li><a class="active" href="usuarios.php">Usuarios</a></li>
             <li><a href="logout.php">LOGOUT</a></li>
         </ul>
     </nav>
 
     <section>
-        <h1>PRODUCTOS</h1>
+        <h1>USUARIOS</h1>
         <div id="scroll">
         <table class="content-table" >
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Producto</th>
-                    <th>Codigo</th>
-                    <th>Precio</th>
-                    <th>Categoria</th>
-                    <th>Imagen</th>
+                    <th>Nick</th>
+                    <th>Contraseña</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Edad</th>
+                    <th>Tlf.</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
             <?php
-                $product_array = $db_handle->runQuery("SELECT * FROM tblproduct");
+                $product_array = $db_handle->runQuery("SELECT * FROM usuarios");
                 foreach($product_array as $key=>$value){
                 //$result=mysqli_query($con,$sql_select);
                 //while ($valores = mysqli_fetch_array($result)) {  
             ?>
                 <tr>
-                    <th><?php echo $product_array[$key]["id"] ?></th>
-                    <th><?php echo $product_array[$key]["name"] ?></th>
-                    <th><?php echo $product_array[$key]["code"] ?></th>
-                    <th><?php echo $product_array[$key]["price"] ?></th>
-                    <th><?php echo $product_array[$key]["category"] ?></th>
-                    <th><img class="imgProd" src="<?php echo $product_array[$key]["image"] ?>"></th>
-                    <th><a href="views/edit_view.php?id=<?php echo $product_array[$key]['id']; ?>">Editar</a></th>
-                    <th><a href="delete.php?id=<?php echo $product_array[$key]['id']; ?>">Eliminar</a></th>
+                    <th><?php echo $product_array[$key]["idUsuario"] ?></th>
+                    <th><?php echo $product_array[$key]["nickname"] ?></th>
+                    <th><?php echo $product_array[$key]["password"] ?></th>
+                    <th><?php echo $product_array[$key]["fname"] ?></th>
+                    <th><?php echo $product_array[$key]["lname"] ?></th>
+                    <th><?php echo $product_array[$key]["email"] ?></th>
+                    <th><?php echo $product_array[$key]["age"] ?></th>
+                    <th><?php echo $product_array[$key]["phone"] ?></th>
+                    <th><a href="views/edit_user.php?id=<?php echo $product_array[$key]['idUsuario']; ?>">Editar</a></th>
+                    <th><a href="delete_user.php?id=<?php echo $product_array[$key]['idUsuario']; ?>">Eliminar</a></th>
                 </tr>
             <?php
                 }
@@ -71,8 +75,8 @@
         </table>
         </div>
     </section>
-    <button type="button" class="btn btn-success btn-lg btn-block" onclick="location.href='views/add_view.php'">
-        Añadir Producto
+    <button type="button" class="btn btn-success btn-lg btn-block" onclick="location.href='views/add_user.php'">
+        Añadir Usuario
     </button>
 
 

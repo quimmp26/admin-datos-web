@@ -1,4 +1,9 @@
 <?php
+
+header("Content-disposition: attachment; filename=report.xml");
+header("Content-type: application/xml");
+readfile("report.xml");
+
 session_start();
 require_once("dbcontroller.php");
 $usuario = $_SESSION["nick_logueado"];
@@ -153,21 +158,28 @@ switch($_GET["action"]) {
 <div id="product-grid">
 	<div class="txt-heading">Productos</div>
 	<br>
-	<form method="post">
-          <div class="dropdown ">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Ordenar Por
-            </button>
-            
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                
-                  <input type="submit" name="precio+" value="Precio: Mas caros primero" class="dropdown-item"/>
-                  <input type="submit" name="precio-" value="Precio: Mas baratos primero" class="dropdown-item"/>
-                
-              </div>
-          </div>
-        </form>
-        <br>
+		<form method="post" >
+		<div class="btn-group" role="group">
+			<div class="dropdown mr-3 ">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Ordenar Por
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<input type="submit" name="precio+" value="Precio: Mas caros primero" class="dropdown-item"/>
+					<input type="submit" name="precio-" value="Precio: Mas baratos primero" class="dropdown-item"/>
+				</div>
+			</div>
+			<div class="dropdown ">
+				<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Exportar
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<input type="submit" name="xml" value="XML" class="dropdown-item"/>
+					<input type="submit" name="excel" value="Excel" class="dropdown-item"/>
+				</div>
+			</div>
+		</div>
+		</form>
 	<?php
         if(isset($_POST['all'])){
             $filtrar = false;
@@ -223,6 +235,39 @@ switch($_GET["action"]) {
 		</div>
 	<?php
 		}
+	}
+
+	if(isset($_POST['xml'])){
+		$xml = new DOMDocument("1.0"); 
+  
+		$xml->formatOutput=true;  
+		$fitness=$xml->createElement("productos"); 
+		$xml->appendChild($fitness); 
+		foreach($product_array as $key=>$value){ 
+			$product=$xml->createElement("product"); 
+			$fitness->appendChild($product); 
+			
+			$name=$xml->createElement("nombre", $product_array[$key]["name"]); 
+			$product->appendChild($name); 
+			
+			$code=$xml->createElement("codigo", $product_array[$key]["code"]); 
+			$product->appendChild($code); 
+			
+			$image=$xml->createElement("imagen", $product_array[$key]["image"]); 
+			$product->appendChild($image); 
+			
+			$price=$xml->createElement("precio", $product_array[$key]["price"]); 
+			$product->appendChild($price); 
+			
+			$category=$xml->createElement("categoria", $product_array[$key]["category"]); 
+			$product->appendChild($category); 
+			
+		} 
+		$xml->save("report.xml"); 
+
+	}
+	if(isset($_POST['excel'])){
+		
 	}
 	?>
 	

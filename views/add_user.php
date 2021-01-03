@@ -7,37 +7,40 @@ require_once("../conexionbd.php");
 
 if(isset($_POST['add'])) {
 
-	$producto = $_POST['producto'];
-	$codigo = $_POST['codigo'];
-	$precio = $_POST['precio'];
-	$img = $_POST['img'];
-	$categoria = $_POST['cat'];
+	$nick = $_POST['nick'];
+	$pass = $_POST['pass'];
+	$fname = $_POST['fname'];
+	$lname = $_POST['lname'];
+    $email = $_POST['email'];
+    $age = $_POST['age'];
+    $phone = $_POST['phone'];
+    $admin = $_POST['admin'];
 
 		//Inserción de datos
 	
 	//Primero compruebo si el nick existe
-	$instruccion = "select count(*) as 'rows' from tblproduct where name = '$producto'";
+	$instruccion = "select count(*) as 'rows' from usuarios where nickname = '$nick'";
 	$res = mysqli_query($con, $instruccion);
 	$datos = mysqli_fetch_assoc($res);
 	
 	if ($datos['rows'] == 0)
 	{
-        $instruccion = "insert into tblproduct (name, code, image, price, category) values ('$producto','$codigo','$img', $precio, '$categoria')";
+        $instruccion = "insert into usuarios (nickname, password, fname, lname, email, age, phone, admin) values ('$nick','$pass','$fname', '$lname', '$email', $age, $phone, $admin)";
 		$res = mysqli_query($con, $instruccion);
 		if (!$res) 
 		{
-            die("No se ha podido añadir el producto");
-            header("Location: ../admin.php");
+            die("No se ha podido añadir el usuario");
+            header("Location: ../usuarios.php");
 		}
 		else
 		{
-			echo "<script>alert('Producto añadido correctamente');</script>";
-			header("Location: ../admin.php");
+			echo "<script>alert('Usuario añadido correctamente');</script>";
+			header("Location: ../usuarios.php");
 		}
 	}
 	else
 	{
-        echo "El producto $producto ya está registrado";
+        echo "El usuario $nick ya está registrado";
 	}
 }
 
@@ -53,24 +56,33 @@ if(isset($_POST['add'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Product</title>
+    <title>Add User</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </head>
 <body>
         
 <form class="text-center border border-light p-5" id="form_add" method="POST">
-        <p class="h4 mb-4">Añadir Producto</p>
+        <p class="h4 mb-4">Añadir Usuario</p>
+        <!-- Nick -->
+        <input type="text" name="nick" class="form-control mb-4" placeholder="Nick" required>
+        <!-- Pass -->
+        <input type="text" name="pass" class="form-control mb-4" placeholder="Contraseña" required >
         <!-- Name -->
-        <input type="text" name="producto" class="form-control mb-4" placeholder="Producto" required>
-        <!-- Codigo -->
-        <input type="text" name="codigo" class="form-control mb-4" placeholder="Codigo" required >
-        <!-- Precio -->
-        <input type="number" name="precio" class="form-control mb-4" placeholder="Precio" required step=".01">
-        <!-- Imagen -->
-        <input type="text" name="img" class="form-control mb-4" placeholder="Imagen" required>
-        <!-- Categoria -->
-        <input type="text" name="cat" class="form-control mb-4" placeholder="Categoria" required>
+        <input type="text" name="fname" class="form-control mb-4" placeholder="Nombre" required>
+        <!-- Last Name -->
+        <input type="text" name="lname" class="form-control mb-4" placeholder="Apellido" required>
+        <!-- Email -->
+        <input type="email" name="email" class="form-control mb-4" placeholder="Email" required>
+        <!-- Age -->
+        <input type="number" name="age" class="form-control mb-4" placeholder="Edad" required>
+         <!-- Phone -->
+        <input type="number" name="phone" class="form-control mb-4" placeholder="Tlf." required>
+          <!-- Admin -->
+        <select class="custom-select form-control mb-4" id="inputGroupSelect01" name="admin" required>
+            <option value="1">Admin</option>
+            <option selected value="0">Estándar</option>
+        </select>
         <!-- Sign in button -->
         <input class="btn btn-info btn-block" type="submit" name="add" value="Añadir">
 </form>
