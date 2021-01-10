@@ -1,14 +1,12 @@
 <?php
 
-header("Content-disposition: attachment; filename=report.xml");
-header("Content-type: application/xml");
-readfile("report.xml");
-
 session_start();
 require_once("dbcontroller.php");
 $usuario = $_SESSION["nick_logueado"];
 $db_handle = new DBController();
 $filtrar = false;
+
+
 if(!empty($_GET["action"])) {
 switch($_GET["action"]) {
 	case "add":
@@ -158,7 +156,7 @@ switch($_GET["action"]) {
 <div id="product-grid">
 	<div class="txt-heading">Productos</div>
 	<br>
-		<form method="post" >
+		<form method="post">
 		<div class="btn-group" role="group">
 			<div class="dropdown mr-3 ">
 				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -171,13 +169,14 @@ switch($_GET["action"]) {
 			</div>
 			<div class="dropdown ">
 				<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Exportar
+				Generar
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 					<input type="submit" name="xml" value="XML" class="dropdown-item"/>
 					<input type="submit" name="excel" value="Excel" class="dropdown-item"/>
 				</div>
 			</div>
+
 		</div>
 		</form>
 	<?php
@@ -263,11 +262,13 @@ switch($_GET["action"]) {
 			$product->appendChild($category); 
 			
 		} 
-		$xml->save("report.xml"); 
+		$xml->save("report.xml");
+		echo "<script> location.href='xml_download.php'; </script>";
 
 	}
 	if(isset($_POST['excel'])){
-		
+		$_SESSION['array'] = $product_array;
+		echo "<script> location.href='excel_download.php'; </script>";	
 	}
 	?>
 	
