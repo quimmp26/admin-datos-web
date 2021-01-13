@@ -39,7 +39,7 @@
             $password2=$fila["rows"];
         }
         
-
+        //Password_Verify Desencriptar
         if (!strcmp($password2 , $password) == 0){
                 echo "Contraseña incorrecta";
                 require_once("index.html");

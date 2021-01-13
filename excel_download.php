@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$product_array = var_dump($_SESSION['array']);
+$product_array = $_SESSION['array'];
 
 $filename = 'report.xls';
             
@@ -10,8 +10,8 @@ $filename = 'report.xls';
             
     $isPrintHeader = false;
 
-    foreach ($product_array as $row=>$value) {
-
+    foreach ($product_array as $row) {
+        
         if (! $isPrintHeader ) {
 
             echo implode("\t", array_keys($row)) . "\n";

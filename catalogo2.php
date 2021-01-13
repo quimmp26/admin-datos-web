@@ -123,9 +123,9 @@ switch($_GET["action"]) {
 			?>
 
 	<tr>
-	<td colspan="2" align="right">Total:</td>
-	<td align="right"><?php echo $total_quantity; ?></td>
-	<td align="right" colspan="2"><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
+	<td colspan="2" style="text-align: right;">Total:</td>
+	<td style="text-align: right;"><?php echo $total_quantity; ?></td>
+	<td style="text-align: right;" colspan="2"><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
 	<td></td>
 	<td></td>
 	</tr>
@@ -149,7 +149,6 @@ switch($_GET["action"]) {
         <button type="submit" class="list-group-item" name="monitores">Monitores</button>
 		<button type="submit" class="list-group-item" name="fotografia">Fotografía</button>
 		<button type="submit" class="list-group-item" name="componentes">Componentes</button>
-		<button type="submit" class="list-group-item" name="relojes">Relojes</button>
     </div>
 </form>
 
@@ -203,10 +202,6 @@ switch($_GET["action"]) {
             $filtrar = true;
 			$product_array = $db_handle->runQuery("SELECT * FROM tblproduct WHERE category='Componentes'");
 		}
-		if(isset($_POST['relojes'])){
-            $filtrar = true;
-			$product_array = $db_handle->runQuery("SELECT * FROM tblproduct WHERE category='Relojes'");
-		}
 		if(isset($_POST['precio-'])) { 
 			$filtrar = true;
 			$product_array = $db_handle->runQuery("SELECT * FROM tblproduct ORDER BY price ASC");
@@ -224,7 +219,7 @@ switch($_GET["action"]) {
 	?>
 		<div class="product-item">
 			<form method="post" action="catalogo2.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
-			<div class="product-image"><img src="<?php echo $product_array[$key]["image"]; ?>" style="max-width: 100%"></div>
+			<div class="product-image"><img src="<?php echo $product_array[$key]["image"]; ?>" style="max-width: 80%"></div>
 			<div class="product-tile-footer">
 			<div class="product-title"><?php echo $product_array[$key]["name"]; ?></div>
 			<div class="product-price"><?php echo "$".$product_array[$key]["price"]; ?></div>

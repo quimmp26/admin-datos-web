@@ -12,7 +12,7 @@ if (isset($_POST["nick"]))
     $lname = $_POST["lname"];
     $email = $_POST["email"];
     $age = $_POST["age"];
-    $phone = $_POST["phone"];
+	$phone = $_POST["phone"];
 
 	$con = mysqli_connect($servidor, $usuario, $contraseña, $bd) or die(mysql_error());
 	
@@ -41,8 +41,8 @@ if (isset($_POST["nick"]))
 			echo "<script>alert('Las contraseñas no coinciden');</script>";
 			require_once("registro.html");
 		} else {
-  
-			$instruccion = "insert into usuarios (nickname, password, fname, lname, email, age, phone, admin) values ('$nick','$password1','$fname', '$lname', '$email', $age, $phone, 0)";
+			$pass_encripyt = password_hash($password1, PASSWORD_DEFAULT);
+			$instruccion = "insert into usuarios (nickname, password, fname, lname, email, age, phone, admin) values ('$nick','$pass_encripyt','$fname', '$lname', '$email', $age, $phone, 0)";
 			$res = mysqli_query($con, $instruccion);
 			if (!$res) 
 			{
