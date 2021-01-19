@@ -25,7 +25,8 @@ if(isset($_POST['add'])) {
 	
 	if ($datos['rows'] == 0)
 	{
-        $instruccion = "insert into usuarios (nickname, password, fname, lname, email, age, phone, admin) values ('$nick','$pass','$fname', '$lname', '$email', $age, $phone, $admin)";
+        $pass_encripyt = password_hash($pass, PASSWORD_DEFAULT);
+        $instruccion = "insert into usuarios (nickname, password, fname, lname, email, age, phone, admin) values ('$nick','$pass_encripyt','$fname', '$lname', '$email', $age, $phone, $admin)";
 		$res = mysqli_query($con, $instruccion);
 		if (!$res) 
 		{
