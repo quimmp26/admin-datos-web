@@ -38,14 +38,10 @@
         while ($fila = $resultado->fetch_assoc()) {
             $password2=$fila["rows"];
         }
-        
+
         //Password_Verify Desencriptar
-        if (!strcmp($password2 , $password) == 0){
-                echo "Contraseña incorrecta";
-                require_once("index.html");
-        }
-        
-        else{
+        if(password_verify($password, $password2)){
+
             $_SESSION["nick_logueado"]=$nick;
             $sql_admin = "select admin from usuarios where nickname = '$nick'";
             $resultado = mysqli_query($con, $sql_admin);
@@ -59,7 +55,11 @@
                 header("Location: catalogo2.php");
                 //require_once("catalogo.php");
             }
-        
+        }
+        else
+        {
+            echo "Contraseña incorrecta";
+            require_once("index.html");
         }
     }
 

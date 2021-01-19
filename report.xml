@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
 <productos>
   <product>
-    <nombre>FinePix Pro2 3D Camera</nombre>
-    <codigo>3DcAM01</codigo>
-    <imagen>img/product-images/camera.jpg</imagen>
+    <nombre>Nikon z7 45.7MP</nombre>
+    <codigo>A005</codigo>
+    <imagen>img/product-images/nikon.jpg</imagen>
     <precio>1500.00</precio>
     <categoria>Fotografia</categoria>
   </product>
   <product>
-    <nombre>EXP Portable Hard Drive</nombre>
-    <codigo>USB02</codigo>
+    <nombre>HDD Portable</nombre>
+    <codigo>HDDP1</codigo>
     <imagen>img/product-images/hdd.jpg</imagen>
     <precio>800.00</precio>
     <categoria>Componentes</categoria>
   </product>
   <product>
-    <nombre>XP 1155 Intel Core Laptop</nombre>
-    <codigo>LPN45</codigo>
+    <nombre>Portatil Intel Core 8GB RAM</nombre>
+    <codigo>PIC11</codigo>
     <imagen>img/product-images/laptop.jpg</imagen>
     <precio>800.00</precio>
     <categoria>Portatiles</categoria>
