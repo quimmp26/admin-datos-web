@@ -19,7 +19,7 @@ if(isset($_POST['guardar'])) {
     $email = $_POST['email'];
     $age = $_POST['age'];
     $tlf = $_POST['tlf'];
-
+    $_SESSION["nick_logueado"] = $nick;
     $edit = mysqli_query($con,"update usuarios set nickname='$nick', password='$pass', fname='$fname', lname='$lname', email='$email', age='$age', phone='$tlf' where nickname='$user'");
     echo $edit;
     if($edit) {

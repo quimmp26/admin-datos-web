@@ -49,11 +49,4 @@
     <precio>199.99</precio>
     <categoria>Monitores</categoria>
   </product>
-  <product>
-    <nombre>Producto nuevo 2</nombre>
-    <codigo>PN02</codigo>
-    <imagen>img/product-images/3.jpg</imagen>
-    <precio>11.50</precio>
-    <categoria>Monitores</categoria>
-  </product>
 </productos>
